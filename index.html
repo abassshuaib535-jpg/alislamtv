@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Islam TV — Daily Islamic Updates | Ibadan, Nigeria</title>
+<meta name="description" content="Al-Islam TV is a WhatsApp-based Islamic media community in Ibadan, Nigeria. Daily Quran, Hadith, Prayer Times, Live streaming and more.">
+<meta name="keywords" content="Al-Islam TV, Islamic WhatsApp group, Nigeria, Ibadan, Quran daily, Hadith, Salah reminder, Hijri date, Ramadan, Muslim community Nigeria">
+<meta name="author" content="Al-Islam TV">
+<meta name="theme-color" content="#0d1f14">
+<meta property="og:title" content="Al-Islam TV — Daily Islamic Updates">
+<meta property="og:description" content="Join Al-Islam TV for daily Quran, Hadith, Prayer Times & Live Islamic Streaming.">
+<meta property="og:image" content="logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ALISLAMTV2">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:      #1B4332;
+  --green-mid:  #2D6A4F;
+  --green-light:#40916C;
+  --gold:       #C9A84C;
+  --gold-light: #E0C068;
+  --dark:       #0d1f14;
+  --card-bg:    rgba(255,255,255,0.05);
+  --card-border:rgba(255,255,255,0.1);
+  --text:       #f0ebe0;
+  --nav-h:      70px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; background:var(--dark); color:var(--text); font-family:'Raleway',sans-serif; overflow-x:hidden; }
+
+/* ── PAGES ── */
+.page { display:none; min-height:100vh; padding-bottom:calc(var(--nav-h) + 20px); animation:fadeIn 0.3s ease; }
+.page.active { display:block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── FLOATING BOTTOM NAV ── */
+.float-nav {
+  position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
+  background:rgba(13,31,20,0.97);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(201,168,76,0.25);
+  border-radius:50px;
+  display:flex; align-items:center;
+  padding:10px 6px;
+  gap:4px;
+  z-index:1000;
+  box-shadow:0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.1);
+  width:calc(100% - 32px);
+  max-width:480px;
+}
+.nav-btn {
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
+  padding:8px 4px; border-radius:40px; border:none; background:transparent;
+  color:rgba(255,255,255,0.4); cursor:pointer; transition:all 0.25s; font-family:'Raleway',sans-serif;
+}
+.nav-btn .nav-icon { font-size:22px; line-height:1; }
+.nav-btn .nav-label { font-size:10px; font-weight:600; letter-spacing:0.5px; }
+.nav-btn.active { background:rgba(201,168,76,0.15); color:var(--gold); }
+.nav-btn.active .nav-label { color:var(--gold); }
+
+/* ── COMMON CARD ── */
+.card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:20px; margin-bottom:16px;
+}
+.card-gold { border-color:rgba(201,168,76,0.3); background:rgba(201,168,76,0.06); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  background:linear-gradient(135deg,var(--dark) 0%,var(--green) 100%);
+  padding:50px 20px 24px; text-align:center; position:relative; overflow:hidden;
+}
+.page-header::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.page-header h1 { font-family:'Amiri',serif; font-size:28px; color:white; position:relative; margin-bottom:6px; }
+.page-header p { font-size:13px; color:rgba(255,255,255,0.5); position:relative; }
+.page-header .gold-line { width:50px; height:2px; background:var(--gold); margin:10px auto; border-radius:2px; }
+
+/* ── CONTENT WRAPPER ── */
+.content { max-width:600px; margin:0 auto; padding:20px 16px; }
+
+/* ── GOLD DIVIDER ── */
+.divider { width:40px; height:2px; background:var(--gold); border-radius:2px; margin:10px 0 16px; }
+
+/* ── BUTTONS ── */
+.btn-gold {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold); color:#0d1f14;
+  padding:12px 24px; border-radius:8px; border:none;
+  font-family:'Raleway',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:1px; text-decoration:none; cursor:pointer; transition:all 0.3s;
+}
+.btn-gold:hover { background:var(--gold-light); }
+.btn-wa {
+  display:inline-flex; align-items:center; gap:8px;
+  background:#25D366; color:white;
+  padding:12px 24px; border-radius:8px; border:none;
+  font-family:'Raleway',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:1px; text-decoration:none; cursor:pointer; transition:all 0.3s;
+}
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--gold);
+  padding:12px 24px; border-radius:8px;
+  border:1px solid rgba(201,168,76,0.4);
+  font-family:'Raleway',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:1px; text-decoration:none; cursor:pointer; transition:all 0.3s;
+}
+.share-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(37,211,102,0.12); color:#25D366;
+  border:1px solid rgba(37,211,102,0.35);
+  padding:8px 16px; border-radius:8px; font-size:12px; font-weight:700;
+  letter-spacing:1px; cursor:pointer; transition:all 0.3s; font-family:'Raleway',sans-serif;
+}
+.share-btn:hover { background:rgba(37,211,102,0.22); }
+
+/* ── SECTION LABEL ── */
+.section-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-light); font-weight:700; margin-bottom:6px; }
+
+/* ── SPINNER ── */
+.spinner { width:18px; height:18px; border:2px solid rgba(201,168,76,0.2); border-top-color:var(--gold); border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(1.4);} }
+@keyframes pulse-arrow { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.15);opacity:0.6;} }
+
+/* ── HOME PAGE HERO ── */
+.hero {
+  background:linear-gradient(160deg,var(--dark) 0%,#1a3a24 50%,#0d2a19 100%);
+  padding:56px 20px 32px; text-align:center; position:relative; overflow:hidden;
+}
+.hero::after {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-moon { font-size:56px; display:block; margin-bottom:16px; animation:float 4s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+.hero h1 { font-family:'Amiri',serif; font-size:32px; color:white; margin-bottom:6px; position:relative; z-index:1; }
+.hero .bismillah { font-family:'Amiri',serif; font-size:22px; color:var(--gold); margin-bottom:12px; display:block; }
+.hero p { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.7; max-width:320px; margin:0 auto 24px; position:relative; z-index:1; }
+.hero-stats { display:flex; justify-content:center; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+.stat-pill { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:8px 16px; font-size:12px; color:rgba(255,255,255,0.6); }
+.stat-pill strong { color:var(--gold); }
+
+/* ── PRAYER CARDS GRID ── */
+.prayer-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+.prayer-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:14px 8px; text-align:center; transition:all 0.3s; }
+.prayer-card.next { border-color:rgba(201,168,76,0.6); background:rgba(201,168,76,0.1); }
+.prayer-card .p-emoji { font-size:22px; margin-bottom:6px; }
+.prayer-card .p-ar { font-family:'Amiri',serif; font-size:14px; color:var(--gold); margin-bottom:3px; }
+.prayer-card .p-en { font-size:11px; color:rgba(255,255,255,0.6); margin-bottom:6px; }
+.prayer-card .p-time { font-size:16px; color:var(--gold-light); font-weight:700; }
+
+/* ── SOCIAL LINKS ── */
+.social-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.social-card { border-radius:12px; padding:18px 16px; text-decoration:none; display:flex; align-items:center; gap:12px; transition:all 0.3s; }
+.social-card:hover { transform:translateY(-2px); }
+
+/* ── QURAN / HADITH CARDS ── */
+.dua-arabic { font-family:'Amiri',serif; font-size:26px; color:var(--gold); line-height:1.9; direction:rtl; text-align:right; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.07); }
+.dua-trans { color:rgba(255,255,255,0.8); font-style:italic; line-height:1.8; font-size:14px; margin-bottom:10px; }
+.dua-ref { font-size:11px; color:rgba(255,255,255,0.35); letter-spacing:1.5px; text-transform:uppercase; }
+
+/* ── LIVE BADGE ── */
+.live-badge { display:inline-flex; align-items:center; gap:6px; background:#e53e3e; color:white; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:1px; }
+.live-dot { width:7px; height:7px; background:white; border-radius:50%; animation:livePulse 1.2s ease-in-out infinite; }
+
+/* ── LEARN ISLAM TABS ── */
+.ltab {
+  flex-shrink:0; padding:9px 16px; border-radius:20px;
+  border:1px solid rgba(255,255,255,0.1); background:transparent;
+  color:rgba(255,255,255,0.5); font-family:'Raleway',sans-serif;
+  font-size:12px; font-weight:700; cursor:pointer; transition:all 0.25s; white-space:nowrap;
+}
+.active-ltab {
+  background:rgba(201,168,76,0.15); color:var(--gold);
+  border-color:rgba(201,168,76,0.4);
+}
+.topic-panel { animation:fadeIn 0.25s ease; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — Mobile first, then scale up
+   Breakpoints:
+     xs:  < 360px  (small phones)
+     sm:  < 480px  (normal phones)
+     md:  < 768px  (large phones / small tablets)
+     lg:  ≥ 768px  (tablets)
+     xl:  ≥ 1024px (desktops)
+═══════════════════════════════════════════════ */
+
+/* ── EXTRA SMALL PHONES (< 360px) ── */
+@media (max-width: 360px) {
+  .hero { padding: 40px 14px 24px; }
+  .hero h1 { font-size: 26px; }
+  .hero .bismillah { font-size: 18px; }
+  .hero p { font-size: 12px; }
+  .hero-stats { gap: 8px; }
+  .stat-pill { font-size: 11px; padding: 6px 12px; }
+  .content { padding: 16px 12px; }
+  .page-header { padding: 40px 14px 20px; }
+  .page-header h1 { font-size: 22px; }
+  .card { padding: 14px 12px; }
+  .btn-wa, .btn-gold, .btn-outline { padding: 10px 16px; font-size: 12px; }
+  .float-nav { padding: 8px 4px; bottom: 10px; }
+  .nav-btn .nav-icon { font-size: 18px; }
+  .nav-btn .nav-label { font-size: 9px; }
+  .prayer-grid { grid-template-columns: repeat(3,1fr); gap: 5px; }
+  .prayer-card { padding: 10px 4px; }
+  .prayer-card .p-emoji { font-size: 16px; }
+  .prayer-card .p-ar { font-size: 12px; }
+  .prayer-card .p-time { font-size: 13px; }
+  .social-grid { grid-template-columns: 1fr; }
+  .dua-arabic { font-size: 20px; }
+  .dua-trans { font-size: 13px; }
+}
+
+/* ── SMALL PHONES (360px – 480px) ── */
+@media (min-width: 361px) and (max-width: 480px) {
+  .hero h1 { font-size: 28px; }
+  .prayer-grid { grid-template-columns: repeat(5,1fr); gap: 6px; }
+  .prayer-card .p-emoji { font-size: 18px; }
+  .prayer-card .p-ar { font-size: 12px; }
+  .prayer-card .p-en { font-size: 10px; }
+  .prayer-card .p-time { font-size: 14px; }
+  .social-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── ALL PHONES (< 480px) common ── */
+@media (max-width: 480px) {
+  .float-nav { width: calc(100% - 24px); bottom: 12px; }
+  .hero-stats { flex-wrap: wrap; justify-content: center; }
+  .btn-wa, .btn-gold, .btn-outline { letter-spacing: 0.5px; }
+}
+
+/* ── TABLETS (768px – 1023px) ── */
+@media (min-width: 768px) {
+  :root { --nav-h: 76px; }
+  .content { max-width: 680px; padding: 28px 24px; }
+  .hero { padding: 70px 32px 40px; }
+  .hero h1 { font-size: 40px; }
+  .hero .bismillah { font-size: 28px; }
+  .hero p { font-size: 15px; max-width: 480px; }
+  .stat-pill { font-size: 13px; padding: 10px 20px; }
+  .page-header { padding: 60px 32px 30px; }
+  .page-header h1 { font-size: 34px; }
+  .card { padding: 24px; border-radius: 16px; }
+  .float-nav { max-width: 560px; padding: 12px 10px; }
+  .nav-btn .nav-icon { font-size: 24px; }
+  .nav-btn .nav-label { font-size: 11px; }
+  .prayer-grid { gap: 12px; }
+  .prayer-card { padding: 18px 10px; border-radius: 14px; }
+  .prayer-card .p-emoji { font-size: 26px; }
+  .prayer-card .p-ar { font-size: 16px; }
+  .prayer-card .p-en { font-size: 12px; }
+  .prayer-card .p-time { font-size: 18px; }
+  .social-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .social-card { padding: 22px 20px; }
+  .dua-arabic { font-size: 30px; }
+  .dua-trans { font-size: 15px; }
+  .btn-wa, .btn-gold, .btn-outline { padding: 14px 28px; font-size: 14px; }
+  .ltab { padding: 11px 20px; font-size: 13px; }
+}
+
+/* ── DESKTOPS (≥ 1024px) ── */
+@media (min-width: 1024px) {
+  body { background: #060f09; }
+  .content { max-width: 720px; padding: 32px 0; }
+  .hero { padding: 80px 40px 48px; }
+  .hero h1 { font-size: 48px; }
+  .hero .bismillah { font-size: 32px; }
+  .hero p { font-size: 16px; max-width: 560px; }
+  .stat-pill { font-size: 14px; }
+  .page-header h1 { font-size: 38px; }
+  .float-nav {
+    bottom: 24px;
+    max-width: 620px;
+    padding: 12px 16px;
+    gap: 8px;
+  }
+  .nav-btn { padding: 10px 16px; border-radius: 40px; }
+  .nav-btn .nav-icon { font-size: 22px; }
+  .nav-btn .nav-label { font-size: 11px; letter-spacing: 0.5px; }
+  .nav-btn:hover { background: rgba(201,168,76,0.1); color: var(--gold-light); }
+  .card { border-radius: 16px; transition: transform 0.2s, box-shadow 0.2s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .prayer-grid { gap: 16px; }
+  .prayer-card { padding: 20px 12px; }
+  .prayer-card .p-emoji { font-size: 28px; }
+  .prayer-card .p-time { font-size: 20px; }
+  .social-grid { gap: 20px; }
+  .dua-arabic { font-size: 32px; }
+  .dua-trans { font-size: 16px; }
+  .btn-wa, .btn-gold, .btn-outline { padding: 14px 32px; font-size: 14px; border-radius: 10px; }
+  .btn-wa:hover { background: #20bd5a; transform: translateY(-1px); }
+  .btn-outline:hover { background: rgba(201,168,76,0.1); transform: translateY(-1px); }
+  .ltab { padding: 11px 22px; font-size: 13px; }
+  .ltab:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
+  .share-btn:hover { transform: translateY(-1px); }
+  /* Desktop: side padding for full bleed pages */
+  .page-header { padding: 70px 40px 32px; }
+}
+
+/* ── LARGE DESKTOPS (≥ 1280px) ── */
+@media (min-width: 1280px) {
+  .content { max-width: 800px; }
+  .hero p { max-width: 640px; }
+  .hero h1 { font-size: 52px; }
+  .float-nav { max-width: 680px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  .float-nav, .share-btn, .btn-wa, .spinner { display: none !important; }
+  .page { display: block !important; }
+  body { background: white; color: black; }
+  .card { border: 1px solid #ccc; }
+  .dua-arabic { color: #333; }
+}
+
+/* ── ACCESSIBILITY: reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── DESKTOP: center layout with sidebar feel ── */
+@media (min-width: 1024px) {
+  .page { max-width: 100%; }
+  #page-home .hero,
+  #page-live .page-header,
+  #page-videos .page-header,
+  #page-prayer .page-header,
+  #page-quran .page-header,
+  #page-learn .page-header {
+    background-attachment: fixed;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ PAGE: HOME ══════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
+    <!-- LOGO -->
+    <div style="margin-bottom:16px;">
+      <img src="logo.jpg" alt="Al-Islam TV Logo"
+        style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 0 24px rgba(201,168,76,0.4);"
+        onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex';">
+      <div id="logo-fallback" style="display:none;width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-mid));border:3px solid var(--gold);margin:0 auto;align-items:center;justify-content:center;font-size:42px;box-shadow:0 0 24px rgba(201,168,76,0.4);">🌙</div>
+    </div>
+    <h1>Al-Islam TV</h1>
+    <p>Spreading the light of Islamic knowledge — daily Quran, Hadith, Prayer Times & Live Streaming</p>
+    <div class="hero-stats">
+      <div class="stat-pill">📍 <strong>Ibadan</strong>, Nigeria</div>
+      <div class="stat-pill">Est. <strong>2021</strong></div>
+      <div class="stat-pill"><strong>2</strong> WhatsApp Groups</div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://chat.whatsapp.com/HvcIkcJi4yd1csdofcCEBY?mode=gi_t" class="btn-wa" target="_blank">📰 Updates Group</a>
+      <a href="https://chat.whatsapp.com/C21gqY9wxivJRNe0rfLAH2?mode=gi_t" class="btn-outline" target="_blank">✨ Status Group</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── ISLAMIC DATE ── -->
+    <div class="card card-gold" style="margin-top:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="section-label">Today's Islamic Date</div>
+          <div id="hijri-date" style="font-family:'Amiri',serif;font-size:24px;color:white;font-weight:700;"></div>
+          <div id="hijri-arabic" style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);"></div>
+          <div id="gregorian-date" style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;"></div>
+        </div>
+        <button class="share-btn" onclick="shareDate()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RAMADAN BOX ── -->
+    <div id="ramadan-banner" class="card card-gold">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;" id="ramadan-label">Ramadan 1447</div>
+        <button class="share-btn" onclick="shareRamadan()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share
+        </button>
+      </div>
+      <div id="ramadan-main" style="font-family:'Amiri',serif;font-size:22px;color:white;margin-bottom:6px;"></div>
+      <div id="ramadan-sub" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;"></div>
+      <div id="ramadan-tiles" style="margin-bottom:16px;"></div>
+      <!-- Salafi Quote of the Day -->
+      <div style="border-top:1px solid rgba(201,168,76,0.2);padding-top:14px;margin-top:4px;">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:10px;">📿 Salafi Quote of the Day</div>
+        <div id="salafi-arabic" style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);direction:rtl;text-align:right;line-height:1.8;margin-bottom:8px;"></div>
+        <div id="salafi-trans" style="font-size:13px;color:rgba(255,255,255,0.75);font-style:italic;line-height:1.7;margin-bottom:6px;"></div>
+        <div id="salafi-ref" style="font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:1px;"></div>
+      </div>
+    </div>
+
+    <!-- ── QUICK LINKS ── -->
+    <div class="section-label" style="margin-top:4px;">Quick Access</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+      <button onclick="goTo('prayer')" class="card" style="cursor:pointer;text-align:center;border:none;color:white;">
+        <div style="font-size:28px;margin-bottom:6px;">🕌</div>
+        <div style="font-size:13px;font-weight:700;">Prayer Times</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Any city worldwide</div>
+      </button>
+      <button onclick="goTo('live')" class="card" style="cursor:pointer;text-align:center;border:none;color:white;">
+        <div style="font-size:28px;margin-bottom:6px;">📡</div>
+        <div style="font-size:13px;font-weight:700;">Live TV</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Stream now</div>
+      </button>
+      <button onclick="goTo('quran')" class="card" style="cursor:pointer;text-align:center;border:none;color:white;">
+        <div style="font-size:28px;margin-bottom:6px;">📖</div>
+        <div style="font-size:13px;font-weight:700;">Quran & Hadith</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Daily verse & reminder</div>
+      </button>
+      <button onclick="goTo('videos')" class="card" style="cursor:pointer;text-align:center;border:none;color:white;">
+        <div style="font-size:28px;margin-bottom:6px;">▶️</div>
+        <div style="font-size:13px;font-weight:700;">YouTube</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Islamic videos</div>
+      </button>
+
+    </div>
+
+    <!-- ── SOCIAL ── -->
+    <div class="section-label">Follow Us</div>
+    <div class="social-grid">
+      <a href="https://www.facebook.com/profile.php?id=100085129003030" target="_blank" class="social-card" style="background:rgba(24,119,242,0.12);border:1px solid rgba(24,119,242,0.25);">
+        <span style="font-size:24px;">📘</span>
+        <div><div style="font-size:13px;font-weight:700;color:white;">Facebook</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">Al-Islam TV</div></div>
+      </a>
+      <a href="https://www.instagram.com/alislamtv01" target="_blank" class="social-card" style="background:rgba(225,48,108,0.12);border:1px solid rgba(225,48,108,0.25);">
+        <span style="font-size:24px;">📸</span>
+        <div><div style="font-size:13px;font-weight:700;color:white;">Instagram</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">@alislamtv01</div></div>
+      </a>
+      <a href="https://x.com/ALISLAMTV2" target="_blank" class="social-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">
+        <span style="font-size:24px;">🐦</span>
+        <div><div style="font-size:13px;font-weight:700;color:white;">Twitter / X</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">@ALISLAMTV2</div></div>
+      </a>
+      <a href="https://www.youtube.com/@AlislamTV2021" target="_blank" class="social-card" style="background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);">
+        <span style="font-size:24px;">▶️</span>
+        <div><div style="font-size:13px;font-weight:700;color:white;">YouTube</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">@AlislamTV2021</div></div>
+      </a>
+    </div>
+
+    <!-- ── DONATION SECTION ── -->
+    <div class="card card-gold" style="margin-top:20px;">
+      <div style="text-align:center;margin-bottom:18px;">
+        <div style="font-size:32px;margin-bottom:8px;">💚</div>
+        <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);margin-bottom:4px;">Support the Dawah</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;">
+          Every contribution helps us continue spreading Islamic knowledge. May Allah reward you abundantly. 🤲
+        </div>
+      </div>
+
+      <!-- Nigeria Bank -->
+      <div class="card" style="margin-bottom:10px;padding:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:20px;">🇳🇬</span>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;">Nigeria — Access Bank</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACCOUNT NAME</div>
+            <div style="font-size:13px;color:white;font-weight:600;">Abass Shuaib</div>
+          </div>
+          <div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACCOUNT NUMBER</div>
+            <div style="font-size:16px;color:var(--gold);font-weight:700;letter-spacing:2px;">1889138093</div>
+          </div>
+        </div>
+        <button onclick="copyText('1889138093','copy-ng')" style="margin-top:12px;width:100%;padding:10px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:8px;color:var(--gold);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;">
+          <span id="copy-ng">📋 Copy Account Number</span>
+        </button>
+      </div>
+
+      <!-- US Bank -->
+      <div class="card" style="margin-bottom:10px;padding:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:20px;">🇺🇸</span>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;">USA — Lead Bank</div>
+        </div>
+        <div style="display:grid;gap:8px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACCOUNT NAME</div>
+              <div style="font-size:13px;color:white;font-weight:600;">Abass Shuaib</div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACCOUNT TYPE</div>
+              <div style="font-size:13px;color:white;font-weight:600;">Checking</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACCOUNT NUMBER</div>
+              <div style="font-size:14px;color:var(--gold);font-weight:700;letter-spacing:1px;">214944519329</div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:2px;">ACH / WIRE ROUTING</div>
+              <div style="font-size:14px;color:var(--gold);font-weight:700;letter-spacing:1px;">101019644</div>
+            </div>
+          </div>
+        </div>
+        <button onclick="copyText('214944519329','copy-us')" style="margin-top:12px;width:100%;padding:10px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:8px;color:var(--gold);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;">
+          <span id="copy-us">📋 Copy Account Number</span>
+        </button>
+      </div>
+
+      <!-- Crypto -->
+      <div class="card" style="margin-bottom:10px;padding:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:20px;">₿</span>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;">Cryptocurrency</div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:6px;">BITCOIN (BTC)</div>
+          <div style="font-size:11px;color:white;word-break:break-all;background:rgba(255,255,255,0.05);padding:10px 12px;border-radius:6px;font-family:monospace;letter-spacing:0.5px;">bc1qlgymlt8afhdrax66zg86xurzpv4s0fystyxz8h</div>
+          <button onclick="copyText('bc1qlgymlt8afhdrax66zg86xurzpv4s0fystyxz8h','copy-btc')" style="margin-top:8px;width:100%;padding:8px;background:rgba(247,147,26,0.1);border:1px solid rgba(247,147,26,0.3);border-radius:6px;color:#f7931a;font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;cursor:pointer;">
+            <span id="copy-btc">📋 Copy BTC Address</span>
+          </button>
+        </div>
+        <div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:6px;">USDC (Ethereum Network)</div>
+          <div style="font-size:11px;color:white;word-break:break-all;background:rgba(255,255,255,0.05);padding:10px 12px;border-radius:6px;font-family:monospace;letter-spacing:0.5px;">0x088731fDEB150826b175fcfDe89DaEBCA0064ded</div>
+          <button onclick="copyText('0x088731fDEB150826b175fcfDe89DaEBCA0064ded','copy-usdc')" style="margin-top:8px;width:100%;padding:8px;background:rgba(39,117,202,0.1);border:1px solid rgba(39,117,202,0.3);border-radius:6px;color:#2775ca;font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;cursor:pointer;">
+            <span id="copy-usdc">📋 Copy USDC Address</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="text-align:center;font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8;margin-top:4px;">
+        جَزَاكَ اللهُ خَيْرًا — May Allah reward you with goodness<br>
+        for supporting the spread of His Deen 🤲
+      </div>
+    </div>
+
+    <!-- Footer info -->
+    <div style="text-align:center;padding:24px 0 8px;border-top:1px solid rgba(255,255,255,0.06);margin-top:20px;">
+      <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:6px;">وَذَكِّرْ فَإِنَّ الذِّكْرَىٰ تَنفَعُ الْمُؤْمِنِينَ</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.3);">"And remind, for indeed, the reminder benefits the believers." — 51:55</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:10px;">© 2021–2026 Al-Islam TV · Ibadan, Nigeria · 08169790443</div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ PAGE: LIVE ══════════════════ -->
+<div class="page" id="page-live">
+  <div class="page-header">
+    <div style="margin-bottom:8px;"><span class="live-badge"><span class="live-dot"></span>LIVE NOW</span></div>
+    <h1>📡 Live Islamic Streams</h1>
+    <div class="gold-line"></div>
+    <p>Watch Al-Islam TV, Makkah & Madinah live</p>
+  </div>
+  <div class="content">
+
+    <!-- Stream Selector Tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px;">
+      <button onclick="switchStream('alislamtv')" id="tab-alislamtv"
+        style="flex-shrink:0;padding:10px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(201,168,76,0.15);color:var(--gold);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+        📡 Al-Islam TV
+      </button>
+      <button onclick="switchStream('makkah')" id="tab-makkah"
+        style="flex-shrink:0;padding:10px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+        🕋 Makkah Live
+      </button>
+      <button onclick="switchStream('madinah')" id="tab-madinah"
+        style="flex-shrink:0;padding:10px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+        🕌 Madinah Live
+      </button>
+      <button onclick="switchStream('quran')" id="tab-quran"
+        style="flex-shrink:0;padding:10px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+        📖 Quran Recitation
+      </button>
+      <button onclick="switchStream('hadith')" id="tab-hadith"
+        style="flex-shrink:0;padding:10px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+        📜 Hadith Live
+      </button>
+    </div>
+
+    <!-- Player Card -->
+    <div class="card" style="padding:0;overflow:hidden;border-color:rgba(255,0,0,0.3);">
+      <!-- Stream Header -->
+      <div id="stream-header" style="background:linear-gradient(135deg,#1a0000,#2a0000);padding:14px 18px;display:flex;align-items:center;gap:10px;">
+        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+        <span id="stream-title" style="color:white;font-weight:700;font-size:14px;">Al-Islam TV</span>
+      </div>
+      <!-- Player Container -->
+      <div style="position:relative;padding-bottom:56.25%;height:0;background:#000;">
+        <iframe id="live-player"
+          src="https://player.gvideo.co/streams/593149_2183883"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+          allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <!-- Stream Info Bar -->
+      <div style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div id="stream-desc" style="font-size:12px;color:rgba(255,255,255,0.4);">🕌 Islamic Lectures · Quran · Reminders</div>
+        <a href="https://chat.whatsapp.com/HvcIkcJi4yd1csdofcCEBY?mode=gi_t" target="_blank" class="btn-wa" style="padding:8px 14px;font-size:11px;">Join WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- All Streams Quick List -->
+    <div class="section-label" style="margin-top:8px;">All Live Channels</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+      <div onclick="switchStream('alislamtv')" style="cursor:pointer;" class="card" style="padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:rgba(255,0,0,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📡</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:white;">Al-Islam TV</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);">Daily Islamic lectures, Quran & reminders</div>
+          </div>
+          <span class="live-badge" style="font-size:10px;padding:3px 8px;flex-shrink:0;"><span class="live-dot"></span>LIVE</span>
+        </div>
+      </div>
+      <div onclick="switchStream('makkah')" style="cursor:pointer;" class="card" style="padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🕋</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:white;">Masjid al-Haram — Makkah</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);">Live from the Holy Mosque, Makkah al-Mukarramah</div>
+          </div>
+          <span class="live-badge" style="font-size:10px;padding:3px 8px;flex-shrink:0;"><span class="live-dot"></span>LIVE</span>
+        </div>
+      </div>
+      <div onclick="switchStream('madinah')" style="cursor:pointer;" class="card" style="padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:rgba(64,145,108,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🕌</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:white;">Masjid an-Nabawi — Madinah</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);">Live from the Prophet's Mosque ﷺ, Madinah</div>
+          </div>
+          <span class="live-badge" style="font-size:10px;padding:3px 8px;flex-shrink:0;"><span class="live-dot"></span>LIVE</span>
+        </div>
+      </div>
+      <div onclick="switchStream('quran')" style="cursor:pointer;" class="card" style="padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:rgba(201,168,76,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📖</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:white;">Quran Recitation Live</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);">Beautiful live Quran recitation — listen & reflect</div>
+          </div>
+          <span class="live-badge" style="font-size:10px;padding:3px 8px;flex-shrink:0;"><span class="live-dot"></span>LIVE</span>
+        </div>
+      </div>
+      <div onclick="switchStream('hadith')" style="cursor:pointer;" class="card" style="padding:14px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📜</div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:700;color:white;">Hadith Live</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);">Live Hadith lessons & Islamic reminders</div>
+          </div>
+          <span class="live-badge" style="font-size:10px;padding:3px 8px;flex-shrink:0;"><span class="live-dot"></span>LIVE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="text-align:center;padding:20px;">
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:14px;">
+        Enjoying the streams? Share with your family and friends and earn the reward of spreading Islamic knowledge 🤲
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://chat.whatsapp.com/HvcIkcJi4yd1csdofcCEBY?mode=gi_t" target="_blank" class="btn-wa">📰 Updates Group</a>
+        <a href="https://chat.whatsapp.com/C21gqY9wxivJRNe0rfLAH2?mode=gi_t" target="_blank" class="btn-outline">✨ Status Group</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ PAGE: VIDEOS ══════════════════ -->
+<div class="page" id="page-videos">
+  <div class="page-header">
+    <h1>▶️ YouTube Videos</h1>
+    <div class="gold-line"></div>
+    <p>Watch Islamic lectures, Quran recitations & reminders</p>
+  </div>
+  <div class="content">
+    <!-- Channel -->
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#FF0000,#cc0000);padding:16px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <div style="width:40px;height:40px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="color:white;font-weight:700;font-size:15px;">Al-Islam TV</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:11px;letter-spacing:1px;">@AlislamTV2021</div>
+        </div>
+        <a href="https://www.youtube.com/@AlislamTV2021?sub_confirmation=1" target="_blank" style="background:white;color:#FF0000;padding:8px 16px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;">Subscribe</a>
+      </div>
+      <div style="position:relative;padding-bottom:56.25%;height:0;background:#000;">
+        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=AlislamTV2021&rel=0&modestbranding=1"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div style="padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.4);">Latest uploads · @AlislamTV2021</span>
+        <a href="https://www.youtube.com/@AlislamTV2021" target="_blank" style="font-size:12px;color:#FF0000;font-weight:700;text-decoration:none;">View Channel →</a>
+      </div>
+    </div>
+
+    <div class="card card-gold" style="text-align:center;">
+      <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);margin-bottom:8px;">اقْرَأْ وَاسْتَمِعْ</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Read, listen, and watch — knowledge in every form.</div>
+      <a href="https://www.youtube.com/@AlislamTV2021?sub_confirmation=1" target="_blank" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Subscribe Now
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ PAGE: PRAYER ══════════════════ -->
+<div class="page" id="page-prayer">
+  <div class="page-header">
+    <h1>🕌 Prayer Times</h1>
+    <div class="gold-line"></div>
+    <p>Get accurate Salah times for any city worldwide</p>
+  </div>
+  <div class="content">
+
+    <!-- Search Box -->
+    <div class="card">
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:14px;line-height:1.7;">📍 Enter your city to get today's prayer times anywhere in the world:</div>
+      <input id="prayer-city" type="text" placeholder="e.g. Lagos, London, Cairo, Mecca..."
+        style="width:100%;padding:13px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:white;font-family:'Raleway',sans-serif;font-size:14px;outline:none;margin-bottom:10px;"
+        onkeydown="if(event.key==='Enter')fetchPrayerTimes()">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button onclick="fetchPrayerTimes()" class="btn-gold" style="flex:1;justify-content:center;padding:12px;">🔍 Get Prayer Times</button>
+        <button onclick="fetchByLocation()" class="btn-outline" style="flex:1;justify-content:center;padding:12px;">📡 My Location</button>
+      </div>
+      <div id="prayer-status" style="margin-top:10px;font-size:13px;color:rgba(255,255,255,0.4);min-height:18px;"></div>
+    </div>
+
+    <!-- Results -->
+    <div id="prayer-results" style="display:none;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+        <div>
+          <div class="section-label">Prayer Times For</div>
+          <div id="prayer-location-name" style="font-size:18px;font-weight:700;color:white;"></div>
+        </div>
+        <div id="prayer-date-label" style="font-size:12px;color:rgba(255,255,255,0.4);"></div>
+      </div>
+
+      <div class="prayer-grid" id="prayer-grid">
+        <div class="prayer-card" data-prayer="Fajr"><div class="p-emoji">🌅</div><div class="p-ar">الفجر</div><div class="p-en">Fajr</div><div class="p-time" id="time-Fajr">--:--</div></div>
+        <div class="prayer-card" data-prayer="Dhuhr"><div class="p-emoji">☀️</div><div class="p-ar">الظهر</div><div class="p-en">Dhuhr</div><div class="p-time" id="time-Dhuhr">--:--</div></div>
+        <div class="prayer-card" data-prayer="Asr"><div class="p-emoji">🌤️</div><div class="p-ar">العصر</div><div class="p-en">Asr</div><div class="p-time" id="time-Asr">--:--</div></div>
+        <div class="prayer-card" data-prayer="Maghrib"><div class="p-emoji">🌇</div><div class="p-ar">المغرب</div><div class="p-en">Maghrib</div><div class="p-time" id="time-Maghrib">--:--</div></div>
+        <div class="prayer-card" data-prayer="Isha"><div class="p-emoji">🌙</div><div class="p-ar">العشاء</div><div class="p-en">Isha</div><div class="p-time" id="time-Isha">--:--</div></div>
+      </div>
+
+      <div id="next-prayer-bar" class="card card-gold" style="display:none;margin-top:12px;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.5);">🔔 Next Prayer:</span>
+        <span id="next-prayer-name" style="color:var(--gold);font-weight:700;font-size:15px;"></span>
+        <span id="next-prayer-time" style="color:rgba(255,255,255,0.7);font-size:13px;"></span>
+        <span id="next-prayer-countdown" style="color:white;font-size:14px;font-weight:700;"></span>
+      </div>
+
+      <div style="margin-top:12px;display:flex;justify-content:flex-end;">
+        <button class="share-btn" onclick="sharePrayerTimes()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share Prayer Times
+        </button>
+      </div>
+    </div>
+
+    <!-- Hint when no search yet -->
+    <div id="prayer-hint" style="text-align:center;padding:40px 20px;">
+      <div style="font-size:48px;margin-bottom:12px;">🕌</div>
+      <p style="color:rgba(255,255,255,0.3);font-size:13px;line-height:1.8;">Enter your city above to see today's prayer times.<br>Works worldwide — Lagos, London, Cairo, Jakarta, Toronto & more!</p>
+    </div>
+
+    <!-- 5 Salah Info Cards -->
+    <div class="section-label" style="margin-top:8px;">The 5 Daily Prayers</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="card" style="text-align:center;padding:16px 10px;">
+        <div style="font-size:28px;margin-bottom:6px;">🌅</div>
+        <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);">الفجر</div>
+        <div style="font-size:12px;font-weight:700;color:white;">Fajr</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Dawn</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 10px;">
+        <div style="font-size:28px;margin-bottom:6px;">☀️</div>
+        <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);">الظهر</div>
+        <div style="font-size:12px;font-weight:700;color:white;">Dhuhr</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Midday</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 10px;">
+        <div style="font-size:28px;margin-bottom:6px;">🌤️</div>
+        <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);">العصر</div>
+        <div style="font-size:12px;font-weight:700;color:white;">Asr</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Afternoon</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 10px;">
+        <div style="font-size:28px;margin-bottom:6px;">🌇</div>
+        <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);">المغرب</div>
+        <div style="font-size:12px;font-weight:700;color:white;">Maghrib</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Sunset / Iftar</div>
+      </div>
+      <div class="card" style="text-align:center;padding:16px 10px;grid-column:1/-1;">
+        <div style="font-size:28px;margin-bottom:6px;">🌙</div>
+        <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);">العشاء</div>
+        <div style="font-size:12px;font-weight:700;color:white;">Isha</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);">Night</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ PAGE: QURAN ══════════════════ -->
+<div class="page" id="page-quran">
+  <div class="page-header">
+    <h1>📖 Quran & Hadith</h1>
+    <div class="gold-line"></div>
+    <p>Daily verse and reminder — updated automatically</p>
+  </div>
+  <div class="content">
+
+    <!-- Quran Verse of the Day -->
+    <div class="card card-gold">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div id="quran-loading" class="spinner"></div>
+          <div class="section-label" style="margin:0;">📖 Quran — Verse of the Day</div>
+        </div>
+        <button class="share-btn" onclick="shareQuran()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share
+        </button>
+      </div>
+      <div id="quran-arabic" class="dua-arabic">— loading —</div>
+      <div id="quran-trans" class="dua-trans">Loading verse...</div>
+      <div id="quran-ref" class="dua-ref">...</div>
+    </div>
+
+    <!-- Hadith of the Day -->
+    <div class="card card-gold">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div id="hadith-loading" class="spinner"></div>
+          <div class="section-label" style="margin:0;">📜 Hadith — Reminder of the Day</div>
+        </div>
+        <button class="share-btn" onclick="shareHadith()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share
+        </button>
+      </div>
+      <div id="hadith-arabic" class="dua-arabic">— loading —</div>
+      <div id="hadith-trans" class="dua-trans">Loading hadith...</div>
+      <div id="hadith-ref" class="dua-ref">...</div>
+    </div>
+
+    <!-- Join Groups CTA -->
+    <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(27,67,50,0.8),rgba(45,106,79,0.6));">
+      <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:14px;line-height:1.7;">
+        Join our WhatsApp groups to receive daily Quran, Hadith and more — every day, for free 🤲
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://chat.whatsapp.com/HvcIkcJi4yd1csdofcCEBY?mode=gi_t" class="btn-wa" target="_blank">📰 Updates Group</a>
+        <a href="https://chat.whatsapp.com/C21gqY9wxivJRNe0rfLAH2?mode=gi_t" class="btn-outline" target="_blank">✨ Status Group</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════ PAGE: LEARN ISLAM ══════════════════ -->
+<div class="page" id="page-learn">
+  <div class="page-header">
+    <h1>🌱 Learn Islam</h1>
+    <div class="gold-line"></div>
+    <p>Fundamentals of Islam for every new Muslim & seeker</p>
+  </div>
+  <div class="content">
+
+    <!-- Welcome message -->
+    <div class="card card-gold" style="text-align:center;padding:22px 20px;margin-bottom:4px;">
+      <div style="font-family:'Amiri',serif;font-size:22px;color:var(--gold);margin-bottom:8px;">أَهْلاً وَسَهْلاً</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.8;">
+        Welcome! This section is designed to help new Muslims and those curious about Islam learn the essentials of the faith — step by step, clearly and simply. 🤲
+      </div>
+    </div>
+
+    <!-- Topic Tabs -->
+    <div style="position:relative;margin-bottom:4px;">
+      <div id="learn-tabs" style="display:flex;gap:8px;overflow-x:auto;padding:16px 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;" onscroll="checkTabScroll()">
+        <button onclick="showTopic('pillars')" id="ltab-pillars" class="ltab active-ltab">🕋 5 Pillars</button>
+      <button onclick="showTopic('iman')" id="ltab-iman" class="ltab">💎 6 Articles</button>
+      <button onclick="showTopic('wudu')" id="ltab-wudu" class="ltab">💧 Wudu & Salah</button>
+      <button onclick="showTopic('duas')" id="ltab-duas" class="ltab">🤲 Duas & Dhikr</button>
+      <button onclick="showTopic('pdfs')" id="ltab-pdfs" class="ltab">📥 PDFs</button>
+      <div style="min-width:32px;flex-shrink:0;"></div>
+    </div>
+    <!-- Scroll right arrow indicator -->
+    <div id="tab-arrow" onclick="document.getElementById('learn-tabs').scrollBy({left:130,behavior:'smooth'})"
+      style="position:absolute;right:0;top:8px;height:44px;width:48px;background:linear-gradient(to left,rgba(13,31,20,0.97) 50%,transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:4px;cursor:pointer;">
+      <div style="width:28px;height:28px;background:rgba(201,168,76,0.18);border:1px solid rgba(201,168,76,0.55);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:pulse-arrow 1.4s ease-in-out infinite;">
+        <span style="color:var(--gold);font-size:15px;line-height:1;margin-left:2px;">›</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- ── TOPIC: 5 PILLARS ── -->
+    <div id="topic-pillars" class="topic-panel">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:16px;">The 5 Pillars of Islam — أَرْكَانُ الإِسْلَام</div>
+
+      <div class="card" style="margin-bottom:10px;padding:18px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">☝️</div>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:2px;">الشَّهَادَة</div>
+            <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;">1. Shahada — Declaration of Faith</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:rgba(255,255,255,0.85);direction:rtl;text-align:right;margin-bottom:8px;line-height:1.9;">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;font-style:italic;margin-bottom:6px;">"I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah."</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;">This is the entry point into Islam. Saying this sincerely with full belief makes a person a Muslim. It means complete submission to Allah alone and following the Prophet ﷺ.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px;padding:18px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🙏</div>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:2px;">الصَّلَاة</div>
+            <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;">2. Salah — Daily Prayer</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:6px;">Muslims pray <strong style="color:white;">5 times every day</strong> — Fajr (dawn), Dhuhr (midday), Asr (afternoon), Maghrib (sunset), Isha (night).</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;">Prayer is a direct connection between the servant and Allah. It is the pillar of the religion — if it is firm, everything is firm. Performed facing the Qiblah (Makkah).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px;padding:18px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">💰</div>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:2px;">الزَّكَاة</div>
+            <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;">3. Zakat — Obligatory Charity</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:6px;">Giving <strong style="color:white;">2.5%</strong> of one's savings annually to those in need — the poor, the needy, and others specified in the Quran.</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;">Zakat purifies one's wealth and soul. It is obligatory on every Muslim who owns wealth above the Nisab (minimum threshold) for one full lunar year.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:10px;padding:18px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🌙</div>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:2px;">الصَّوْم</div>
+            <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;">4. Sawm — Fasting in Ramadan</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:6px;">Fasting the entire month of Ramadan — from Fajr (dawn) to Maghrib (sunset) — abstaining from food, drink and intimate relations.</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;">Fasting trains patience, gratitude, and God-consciousness (Taqwa). It is one of the greatest acts of worship. Allah said: "Fasting is for Me, and I will reward it."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px;padding:18px;">
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:38px;height:38px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🕋</div>
+          <div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:2px;">الحَجّ</div>
+            <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;">5. Hajj — Pilgrimage to Makkah</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:6px;">Performing Hajj to Makkah <strong style="color:white;">once in a lifetime</strong>, for every Muslim who is physically and financially able.</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;">Hajj is the greatest gathering of Muslims on earth. It symbolises unity, equality before Allah, and remembrance of the Day of Judgement.</div>
+          </div>
+        </div>
+      </div>
+      <button class="share-btn" style="width:100%;justify-content:center;" onclick="shareTopic('pillars')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Share the 5 Pillars
+      </button>
+    </div>
+
+    <!-- ── TOPIC: 6 ARTICLES OF FAITH ── -->
+    <div id="topic-iman" class="topic-panel" style="display:none;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:16px;">The 6 Articles of Faith — أَرْكَانُ الإِيمَان</div>
+      <div class="card card-gold" style="margin-bottom:12px;padding:16px;">
+        <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:1.9;margin-bottom:10px;">آمَنتُ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الآخِرِ وَبِالْقَدَرِ خَيْرِهِ وَشَرِّهِ</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);font-style:italic;">"I believe in Allah, His Angels, His Books, His Messengers, the Last Day, and in Qadar — its good and its evil." — From Hadith Jibril</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">1️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِاللَّه</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in Allah</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">Believing Allah is One — with no partner, no son, no equal. He is the Creator, Sustainer and Lord of everything that exists.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">2️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِالمَلَائِكَة</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in Angels</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">Angels are created from light. They do not disobey Allah. Among them: Jibreel (revelation), Mikael (rain), Israfeel (trumpet on Judgement Day).</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">3️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِالكُتُب</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in Allah's Books</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">Allah revealed scriptures to His prophets. The Quran is the final, preserved book — the complete and unaltered word of Allah.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">4️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِالرُّسُل</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in the Prophets & Messengers</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">Allah sent prophets to every nation — from Adam to Nuh, Ibrahim, Musa, Isa, and the final prophet Muhammad ﷺ.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">5️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِاليَوْمِ الآخِر</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in the Last Day</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">A day will come when all creation is resurrected and judged. Every person will stand before Allah and be held accountable for their deeds.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">6️⃣</div>
+            <div>
+              <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);">الإِيمَانُ بِالقَدَر</div>
+              <div style="font-size:13px;font-weight:700;color:white;">Belief in Qadar (Divine Decree)</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;line-height:1.6;">Everything that happens — good or bad — occurs by Allah's knowledge and will. A Muslim accepts both ease and hardship with faith and patience.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="share-btn" style="width:100%;justify-content:center;" onclick="shareTopic('iman')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Share the 6 Articles of Faith
+      </button>
+    </div>
+
+    <!-- ── TOPIC: WUDU & SALAH ── -->
+    <div id="topic-wudu" class="topic-panel" style="display:none;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:16px;">How to Perform Wudu & Salah</div>
+
+      <!-- WUDU -->
+      <div class="card card-gold" style="margin-bottom:10px;padding:18px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px;letter-spacing:1px;">💧 STEP-BY-STEP WUDU (Ablution)</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">1</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Intention (Niyyah)</strong> — Make intention in your heart to purify yourself for Salah.</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">2</div><div style="font-size:13px;color:rgba(255,255,255,0.75);">Say <strong style="color:white;">Bismillah</strong> — بِسْمِ اللَّه</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">3</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Wash both hands</strong> up to the wrists — 3 times</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">4</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Rinse mouth</strong> — 3 times</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">5</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Sniff water into nose</strong> and blow out — 3 times</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">6</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Wash face</strong> completely — 3 times</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">7</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Wash right arm</strong> up to elbow — 3 times, then <strong style="color:white;">left arm</strong> — 3 times</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">8</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Wipe head</strong> with wet hands (front to back once), then <strong style="color:white;">wipe ears</strong></div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0d1f14;flex-shrink:0;">9</div><div style="font-size:13px;color:rgba(255,255,255,0.75);"><strong style="color:white;">Wash right foot</strong> up to and including the ankle thoroughly, ensuring water reaches between toes — then <strong style="color:white;">left foot</strong> the same way</div></div>
+          <div style="display:flex;gap:10px;"><div style="width:26px;height:26px;background:rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✅</div><div style="font-size:13px;color:rgba(255,255,255,0.75);">Say the <strong style="color:white;">Shahada</strong> after Wudu: <span style="font-family:'Amiri',serif;font-size:14px;color:var(--gold);">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ...</span></div></div>
+        </div>
+      </div>
+
+      <!-- SALAH STEPS -->
+      <div class="card" style="padding:18px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px;letter-spacing:1px;">🙏 HOW TO PERFORM SALAH</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:white;margin-bottom:4px;">① Stand (Qiyam) — Face the Qiblah</div>
+            <div style="font-family:'Amiri',serif;font-size:15px;color:var(--gold);direction:rtl;text-align:right;">اللَّهُ أَكْبَر</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px;">Say Takbeer: "Allahu Akbar" — raise both hands to shoulders</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:white;margin-bottom:4px;">② Recite Al-Fatihah</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);">Recite Surah Al-Fatihah (the opening chapter), then another surah or ayah.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:white;margin-bottom:4px;">③ Bow (Ruku)</div>
+            <div style="font-family:'Amiri',serif;font-size:15px;color:var(--gold);direction:rtl;text-align:right;">سُبْحَانَ رَبِّيَ الْعَظِيم</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px;">Say 3x: "Subhana Rabbiyal Adheem" — Glory be to my Lord, the Almighty</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:white;margin-bottom:4px;">④ Prostrate (Sujood)</div>
+            <div style="font-family:'Amiri',serif;font-size:15px;color:var(--gold);direction:rtl;text-align:right;">سُبْحَانَ رَبِّيَ الأَعْلَى</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px;">Say 3x: "Subhana Rabbiyal A'la" — Glory be to my Lord, the Most High. Forehead, nose, both hands, knees and toes on ground.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+            <div style="font-size:12px;font-weight:700;color:white;margin-bottom:4px;">⑤ Tashahhud & Tasleem</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);">Sit and recite At-Tashahhud, then end the prayer by turning right then left saying: <span style="color:var(--gold);">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّه</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="share-btn" style="width:100%;justify-content:center;" onclick="shareTopic('wudu')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Share Wudu & Salah Guide
+      </button>
+    </div>
+
+    <!-- ── TOPIC: DUAS & DHIKR ── -->
+    <div id="topic-duas" class="topic-panel" style="display:none;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:4px;">Duas & Adhkaar — from Hisnul Muslim</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:14px;font-style:italic;">Selected from Hisnul Muslim by Sa'id al-Qahtani رحمه الله</div>
+
+      <!-- Sub-tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+        <button onclick="showDhikr('morning')" id="dtab-morning" style="padding:9px 16px;border-radius:20px;border:1px solid rgba(201,168,76,0.4);background:rgba(201,168,76,0.15);color:var(--gold);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">🌅 Morning</button>
+        <button onclick="showDhikr('evening')" id="dtab-evening" style="padding:9px 16px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">🌙 Evening</button>
+        <button onclick="showDhikr('home')" id="dtab-home" style="padding:9px 16px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">🏠 Home</button>
+      </div>
+
+      <!-- MORNING ADHKAAR -->
+      <div id="dhikr-morning">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:12px;">🌅 Morning Adhkaar — أذكار الصباح</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">① Recite <strong style="color:white;">Ayatul Kursi</strong> — 1 time</div>
+            <div style="font-family:'Amiri',serif;font-size:17px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ...</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;">Al-Baqarah 2:255 — Recite in full</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">② Surah Al-Ikhlas — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:17px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">③ Surah Al-Falaq — <strong style="color:var(--gold);">3 times</strong> &nbsp;|&nbsp; ④ Surah An-Nas — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);">Recite both in full — protection from evil, envy and whisperings</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑤ Morning Dhikr</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أصبَحنا وَأصبَحَ المُلكُ للَّهِ، وَالحَمدُ للَّهِ، لا إلَهَ إلّا اللَّهُ وَحدَهُ لا شَريكَ لَهُ، لَهُ المُلكُ وَلَهُ الحَمدُ، وَهُوَ عَلى كُلِّ شَيءٍ قَديرٌ، رَبِّ أسألُكَ خَيرَ ما في هَذا اليَومِ وَخَيرَ ما بَعدَهُ، وَأعوذُ بِكَ مِن شَرِّ ما في هَذا اليَومِ وَشَرِّ ما بَعدَهُ، رَبِّ أعوذُ بِكَ مِنَ الكَسَلِ وَسُوءِ الكِبَرِ، رَبِّ أعوذُ بِكَ مِن عَذابٍ في النّارِ وَعَذابٍ في القَبرِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑥</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑦ Sayyidul Istighfar</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑧ — <strong style="color:var(--gold);">4 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتِكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرَسُولُكَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑨</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑩ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑪ — <strong style="color:var(--gold);">7 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑫</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي، وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَينِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑬</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑭ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑮ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ صلى الله عليه وسلم نَبِيّاً</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑯</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑰</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑱</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صلى الله عليه وسلم، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑲ — <strong style="color:var(--gold);">100 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑳ — <strong style="color:var(--gold);">10 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉑ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉒</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉓ Istighfar — <strong style="color:var(--gold);">100 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉔ Salawat — <strong style="color:var(--gold);">10 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EVENING ADHKAAR -->
+      <div id="dhikr-evening" style="display:none;">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:12px;">🌙 Evening Adhkaar — أذكار المساء</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">① Recite <strong style="color:white;">Ayatul Kursi</strong> — 1 time</div>
+            <div style="font-family:'Amiri',serif;font-size:17px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ...</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;">Al-Baqarah 2:255 — Recite in full</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">② Surah Al-Ikhlas — <strong style="color:var(--gold);">3×</strong> &nbsp;|&nbsp; ③ Al-Falaq — <strong style="color:var(--gold);">3×</strong> &nbsp;|&nbsp; ④ An-Nas — <strong style="color:var(--gold);">3×</strong></div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);">Recite each in full — evening protection</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑤ Evening Dhikr</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أمسَينا وَأمسى المُلكُ للَّهِ، وَالحَمدُ للَّهِ، لا إلَهَ إلّا اللَّهُ وَحدَهُ لا شَريكَ لَهُ، لَهُ المُلكُ وَلَهُ الحَمدُ، وَهُوَ عَلى كُلِّ شَيءٍ قَديرٌ، رَبِّ أسألُكَ خَيرَ ما في هَذِهِ اللَّيلَةِ وَخَيرَ ما بَعدَها، وَأعوذُ بِكَ مِن شَرِّ ما في هَذِهِ اللَّيلَةِ وَشَرِّ ما بَعدَها، رَبِّ أعوذُ بِكَ مِنَ الكَسَلِ وَسُوءِ الكِبَرِ، رَبِّ أعوذُ بِكَ مِن عَذابٍ في النّارِ وَعَذابٍ في القَبرِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑥</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ بِكَ أمسَينا، وَبِكَ أصبَحنا، وَبِكَ نَحيا، وَبِكَ نَموتُ، وَإلَيكَ المَصيرُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑦ Sayyidul Istighfar</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ أَنْتَ رَبِّي، لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَىَّ وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑧ — <strong style="color:var(--gold);">4 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ إنّي أمسَيتُ أُشهِدُكَ، وَأُشهِدُ حَمَلَةَ عَرشِكَ، وَمَلائِكَتَكَ، وَجَميعَ خَلقِكَ، أنَّكَ أنتَ اللَّهُ لا إلَهَ إلّا أنتَ وَحدَكَ لا شَريكَ لَكَ، وَأنَّ مُحَمَّدًا عَبدُكَ وَرَسولُكَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑨</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ ما أمسَى بي مِن نِعمَةٍ أو بِأحَدٍ مِن خَلقِكَ فَمِنكَ وَحدَكَ لا شَريكَ لَكَ، فَلَكَ الحَمدُ وَلَكَ الشُّكرُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑩ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑪ — <strong style="color:var(--gold);">7 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑫</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي، وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَينِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑬</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، فَاطِرَ السَّمَاوَاتِ وَالأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَعُوْذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑭ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑮ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ صلى الله عليه وسلم نَبِيّاً</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑯</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑰</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أمسَينا وَأمسَى المُلكُ للَّهِ رَبِّ العالَمينَ، اللَّهُمَّ إنّي أسألُكَ خَيرَ هَذِهِ اللَّيلَةِ: فَتحَها، وَنَصرَها، وَنورَها، وَبَرَكَتَها، وَهُداها، وَأعوذُ بِكَ مِن شَرِّ ما فيها وَشَرِّ ما بَعدَها</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑱</div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أمسَينا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صلى الله عليه وسلم، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑲ — <strong style="color:var(--gold);">10 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">⑳ — <strong style="color:var(--gold);">100 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉑ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉒ — <strong style="color:var(--gold);">3 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:16px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉓ Istighfar — <strong style="color:var(--gold);">100 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:20px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;">㉔ Salawat — <strong style="color:var(--gold);">10 times</strong></div>
+            <div style="font-family:'Amiri',serif;font-size:18px;color:var(--gold);direction:rtl;text-align:right;line-height:2;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- HOME DUAS -->
+      <div id="dhikr-home" style="display:none;">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:12px;">🏠 Duas for the Home</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">🚪 When Entering the Home</div>
+            <div style="font-family:'Amiri',serif;font-size:17px;color:var(--gold);direction:rtl;text-align:right;line-height:2;margin-bottom:8px;">بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.65);font-style:italic;margin-bottom:6px;">"In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we put our trust."</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Then say Salaam to your family: <span style="font-family:'Amiri',serif;color:var(--gold);">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</span></div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;">— Abu Dawud 5096</div>
+          </div>
+
+          <div class="card" style="padding:16px;">
+            <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">🚶 When Leaving the Home</div>
+            <div style="font-family:'Amiri',serif;font-size:17px;color:var(--gold);direction:rtl;text-align:right;line-height:2;margin-bottom:8px;">بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.65);font-style:italic;margin-bottom:6px;">"In the name of Allah, I place my trust in Allah, and there is no might nor power except with Allah."</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Whoever says this when leaving home, it is said to him: You are guided, defended and protected, and shaytan withdraws from him.</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;">— Abu Dawud 5095, Tirmidhi 3426</div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="share-btn" style="width:100%;justify-content:center;margin-top:16px;" onclick="shareTopic('duas')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.465A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.662-.522-5.176-1.428l-.36-.214-3.737.98.998-3.645-.235-.374A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Share Adhkaar
+      </button>
+    </div>
+
+        <!-- ── TOPIC: PDFs ── -->
+    <div id="topic-pdfs" class="topic-panel" style="display:none;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:6px;">📥 Downloadable Islamic Guides</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:16px;font-style:italic;">Authentic Islamic PDFs sourced from IslamHouse.com — Official Islamic Affairs platform. Tap to open or download. 🤲</div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:52px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📄</div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:2px;">The 5 Pillars of Islam</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:8px;">Complete beginner's guide to the 5 pillars</div>
+              <a href="https://d1.islamhouse.com/data/en/ih_articles/single2/en_The_Five_Pillars_of_Islam.pdf" target="_blank" class="btn-gold" style="padding:8px 16px;font-size:11px;text-decoration:none;display:inline-flex;">
+                📖 Open PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:52px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📄</div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:2px;">The 6 Articles of Faith (Iman)</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:8px;">Understanding the foundations of Islamic belief</div>
+              <a href="https://d1.islamhouse.com/data/en/ih_books/single/en_Fundamentals_Of_Faith.pdf" target="_blank" class="btn-gold" style="padding:8px 16px;font-size:11px;text-decoration:none;display:inline-flex;">
+                📖 Open PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:52px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📄</div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:2px;">How to Perform Wudu & Salah</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:8px;">Step-by-step guide with illustrations</div>
+              <a href="https://d1.islamhouse.com/data/en/ih_books/single2/en_My_Prayer_the_2nd_Pillar_of_Islam.pdf" target="_blank" class="btn-gold" style="padding:8px 16px;font-size:11px;text-decoration:none;display:inline-flex;">
+                📖 Open PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:52px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📄</div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:2px;">Hisnul Muslim — Fortress of the Muslim</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:8px;">Complete duas and adhkar for daily life</div>
+              <a href="https://d1.islamhouse.com/data/en/ih_books/single/en_hisn_almuslim.pdf" target="_blank" class="btn-gold" style="padding:8px 16px;font-size:11px;text-decoration:none;display:inline-flex;">
+                📖 Open PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:44px;height:52px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📄</div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:2px;">Understanding Tawheed & Avoiding Shirk</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:8px;">Essential guide to Islamic monotheism</div>
+              <a href="https://d1.islamhouse.com/data/en/ih_books/single3/en-the-islamic-faith.pdf" target="_blank" class="btn-gold" style="padding:8px 16px;font-size:11px;text-decoration:none;display:inline-flex;">
+                📖 Open PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Source credit -->
+      <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.8;">
+          📚 PDFs sourced from <strong style="color:var(--gold);">IslamHouse.com</strong><br>
+          Official platform of the Saudi Ministry of Islamic Affairs<br>
+          <span style="font-size:11px;color:rgba(255,255,255,0.25);">Authenticated Islamic content in 70+ languages</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════ FLOATING BOTTOM NAV ══════════════════ -->
+<nav class="float-nav">
+  <button class="nav-btn active" id="nav-home" onclick="goTo('home')">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Home</span>
+  </button>
+  <button class="nav-btn" id="nav-live" onclick="goTo('live')">
+    <span class="nav-icon">📡</span>
+    <span class="nav-label">Live</span>
+  </button>
+  <button class="nav-btn" id="nav-learn" onclick="goTo('learn')">
+    <span class="nav-icon">🌱</span>
+    <span class="nav-label">Learn Islam</span>
+  </button>
+  <button class="nav-btn" id="nav-prayer" onclick="goTo('prayer')">
+    <span class="nav-icon">🕌</span>
+    <span class="nav-label">Prayer</span>
+  </button>
+  <button class="nav-btn" id="nav-quran" onclick="goTo('quran')">
+    <span class="nav-icon">📖</span>
+    <span class="nav-label">Qur'an</span>
+  </button>
+</nav>
+
+
+<script>
+// ── NAVIGATION ──
+function goTo(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── SHARE HELPER ──
+const WA_LINK = 'https://chat.whatsapp.com/HvcIkcJi4yd1csdofcCEBY?mode=gi_t';
+const WA_STATUS = 'https://chat.whatsapp.com/C21gqY9wxivJRNe0rfLAH2?mode=gi_t';
+const SITE_TAG = '\n\n📡 *Al-Islam TV* — Daily Islamic Updates\n🔗 Join us: ' + WA_LINK + '\n✨ Status group: ' + WA_STATUS;
+
+function shareViaWhatsApp(text) {
+  const encoded = encodeURIComponent(text);
+  if (navigator.share) {
+    navigator.share({ text }).catch(() => window.open('https://wa.me/?text=' + encoded, '_blank'));
+  } else {
+    window.open('https://wa.me/?text=' + encoded, '_blank');
+  }
+}
+
+// ── HIJRI DATE ──
+function toHijri(date) {
+  const ANCHOR_GREGORIAN = new Date(2026, 1, 18);
+  const ANCHOR_HIJRI = { year: 1447, month: 9, day: 1 };
+  function hijriMonthLength(month, year) {
+    if ([1,3,5,7,9,11].includes(month)) return 30;
+    if (month === 12) return [2,5,7,10,13,16,18,21,24,26,29].includes(year % 30) ? 30 : 29;
+    return 29;
+  }
+  const diffDays = Math.round((date.getTime() - ANCHOR_GREGORIAN.getTime()) / 86400000);
+  let { year, month, day } = ANCHOR_HIJRI;
+  let remaining = diffDays;
+  if (remaining >= 0) {
+    remaining += (day - 1); day = 1;
+    while (remaining >= hijriMonthLength(month, year)) {
+      remaining -= hijriMonthLength(month, year);
+      month++; if (month > 12) { month = 1; year++; }
+    }
+    day = remaining + 1;
+  } else {
+    remaining = Math.abs(remaining); day -= remaining;
+    while (day <= 0) {
+      month--; if (month < 1) { month = 12; year--; }
+      day += hijriMonthLength(month, year);
+    }
+  }
+  const mN = ['Muharram','Safar',"Rabi' al-Awwal","Rabi' al-Thani",'Jumada al-Awwal','Jumada al-Thani','Rajab',"Sha'ban",'Ramadan','Shawwal',"Dhu al-Qi'dah",'Dhu al-Hijjah'];
+  const mA = ['مُحَرَّم','صَفَر','رَبِيعُ الأَوَّل','رَبِيعُ الثَّانِي','جُمَادَى الأُولَى','جُمَادَى الثَّانِيَة','رَجَب','شَعْبَان','رَمَضَان','شَوَّال','ذُو الْقَعْدَة','ذُو الْحِجَّة'];
+  return { day, month: mN[month-1], monthAr: mA[month-1], year, isRamadan: month === 9 };
+}
+
+const today = new Date();
+const watDate = new Date(today.getTime() + (today.getTimezoneOffset() + 60) * 60000);
+const h = toHijri(watDate);
+const rb = h.isRamadan ? ' 🌙' : '';
+document.getElementById('hijri-date').textContent = `${h.day} ${h.month} ${h.year} AH${rb}`;
+document.getElementById('hijri-arabic').textContent = `${h.day} ${h.monthAr} ${h.year} هـ${rb}`;
+const dNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const mNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+document.getElementById('gregorian-date').textContent = `${dNames[watDate.getDay()]}, ${watDate.getDate()} ${mNames[watDate.getMonth()]} ${watDate.getFullYear()}`;
+
+function shareDate() {
+  const text = '🌙 *Today\'s Islamic Date*\n\n📅 ' + document.getElementById('hijri-date').textContent +
+    '\n🗓️ ' + document.getElementById('hijri-arabic').textContent +
+    '\n📆 ' + document.getElementById('gregorian-date').textContent + SITE_TAG;
+  shareViaWhatsApp(text);
+}
+
+// ── SALAFI QUOTES ──
+const salafiQuotes = [
+  { arabic: 'مَنْ أَرَادَ الدُّنْيَا فَعَلَيْهِ بِالْعِلْمِ، وَمَنْ أَرَادَ الآخِرَةَ فَعَلَيْهِ بِالْعِلْمِ', trans: '"Whoever desires this world, let him seek knowledge. And whoever desires the Hereafter, let him seek knowledge."', ref: '— Imam al-Shafi\'i رحمه الله' },
+  { arabic: 'الصَّبْرُ نِصْفُ الإِيمَانِ وَالْيَقِينُ الإِيمَانُ كُلُّهُ', trans: '"Patience is half of faith, and certainty is faith in its entirety."', ref: '— Imam Ibn al-Qayyim رحمه الله' },
+  { arabic: 'كُنْ عَالِمًا أَوْ مُتَعَلِّمًا أَوْ مُسْتَمِعًا أَوْ مُحِبًّا وَلَا تَكُنِ الْخَامِسَ فَتَهْلَكَ', trans: '"Be a scholar, or a student, or a listener, or a lover (of knowledge), and do not be the fifth — lest you perish."', ref: '— Ibn Mas\'ud رضي الله عنه' },
+  { arabic: 'إِنَّ الْقَلْبَ إِذَا أُشْرِبَ حُبَّ الدُّنْيَا الْتَاثَ بِثَلاَثٍ: هَمٍّ لَا يَنْقَطِعُ، وَأَمَلٍ لَا يُدْرَكُ، وَرَجَاءٍ لَا يُنَالُ', trans: '"When the heart is soaked in love of this world, it is afflicted with three things: unending grief, unreachable hope, and unattainable desire."', ref: '— Imam Ibn al-Qayyim رحمه الله' },
+  { arabic: 'نِعْمَةُ الإِسْلَامِ كَافِيَةٌ، وَالصِّحَّةُ نِعْمَةٌ مَجْهُولَةٌ', trans: '"The blessing of Islam is sufficient, and health is an unrecognized blessing."', ref: '— Imam Ahmad رحمه الله' },
+  { arabic: 'لَيْسَ الْعِلْمُ بِكَثْرَةِ الرِّوَايَةِ، إِنَّمَا الْعِلْمُ الْخَشْيَةُ', trans: '"Knowledge is not in the abundance of narrations — knowledge is (having) the fear (of Allah)."', ref: '— Imam Malik رحمه الله' },
+  { arabic: 'أَصْلُ الدِّينِ التَّوْحِيدُ وَرَأْسُهُ الطَّاعَةُ', trans: '"The foundation of the religion is Tawheed (monotheism) and its head is obedience."', ref: '— Imam Ibn Taymiyyah رحمه الله' },
+  { arabic: 'مَنِ اتَّقَى اللهَ أَحَبَّهُ النَّاسُ وَإِنْ كَرِهُوا', trans: '"Whoever has Taqwa of Allah, the people will love him — even if they dislike it."', ref: '— Imam al-Shafi\'i رحمه الله' },
+  { arabic: 'الذِّكْرُ لِلْقَلْبِ كَالْمَاءِ لِلسَّمَكِ', trans: '"Dhikr (remembrance of Allah) is to the heart as water is to the fish."', ref: '— Imam Ibn al-Qayyim رحمه الله' },
+  { arabic: 'التَّوَاضُعُ أَنْ تَقْبَلَ الْحَقَّ مِمَّنْ جَاءَ بِهِ', trans: '"Humility is to accept the truth from whoever brings it."', ref: '— Imam Ahmad رحمه الله' },
+  { arabic: 'مَنْ تَرَكَ شَيْئًا لِلَّهِ عَوَّضَهُ اللهُ خَيْرًا مِنْهُ', trans: '"Whoever leaves something for the sake of Allah, Allah will replace it with something better."', ref: '— Imam Ahmad رحمه الله' },
+  { arabic: 'إِذَا أَرَادَ اللهُ بِعَبْدٍ خَيْرًا فَتَحَ عَلَيْهِ بَابَ الْعَمَلِ وَأَغْلَقَ عَنْهُ بَابَ الْجَدَلِ', trans: '"When Allah wishes good for a servant, He opens for him the door of action and closes the door of argumentation."', ref: '— Imam Ibn Rajab رحمه الله' },
+];
+
+const dayOfYear = Math.floor((watDate - new Date(watDate.getFullYear(), 0, 0)) / 86400000);
+const sq = salafiQuotes[dayOfYear % salafiQuotes.length];
+document.getElementById('salafi-arabic').textContent = sq.arabic;
+document.getElementById('salafi-trans').textContent = sq.trans;
+document.getElementById('salafi-ref').textContent = sq.ref;
+
+// ── RAMADAN COUNTDOWN ──
+(function() {
+  const R_START = new Date(2026, 1, 18);
+  const R_END   = new Date(2026, 2, 19);
+  const EID     = new Date(2026, 2, 20);
+  const banner  = document.getElementById('ramadan-banner');
+  const mainEl  = document.getElementById('ramadan-main');
+  const subEl   = document.getElementById('ramadan-sub');
+  const labelEl = document.getElementById('ramadan-label');
+  const tilesEl = document.getElementById('ramadan-tiles');
+
+  function tile(v, u) {
+    return `<div style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:8px;padding:12px 16px;text-align:center;min-width:60px;display:inline-block;margin:4px;">
+      <div style="font-family:'Amiri',serif;font-size:28px;color:var(--gold);font-weight:700;line-height:1;">${String(v).padStart(2,'0')}</div>
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:3px;">${u}</div>
+    </div>`;
+  }
+
+  function update() {
+    const n = new Date();
+    const w = new Date(n.getTime() + (n.getTimezoneOffset() + 60) * 60000);
+    if (w < R_START) {
+      const d = R_START - w;
+      labelEl.textContent = 'Ramadan 1447 — Countdown';
+      mainEl.textContent  = '🌙 Ramadan is Coming!';
+      subEl.textContent   = 'Prepare your heart for the blessed month';
+      tilesEl.innerHTML   = tile(Math.floor(d/86400000),'Days') + tile(Math.floor((d%86400000)/3600000),'Hours') + tile(Math.floor((d%3600000)/60000),'Mins') + tile(Math.floor((d%60000)/1000),'Secs');
+      tilesEl.style.textAlign = 'center';
+    } else if (w <= R_END) {
+      const dayNum = Math.floor((w - R_START) / 86400000) + 1;
+      const left   = 30 - dayNum + 1;
+      const pct    = Math.round((dayNum / 30) * 100);
+      labelEl.textContent = '🌙 Ramadan Mubarak — 1447 AH';
+      mainEl.innerHTML    = `Day <strong style="color:var(--gold)">${dayNum}</strong> of 30 &nbsp;·&nbsp; <span style="font-size:14px;opacity:0.6;">${left} day${left!==1?'s':''} remaining</span>`;
+      subEl.textContent   = 'رَمَضَانُ شَهْرٌ مُبَارَكٌ — Ramadan is a blessed month';
+      tilesEl.innerHTML   = `<div style="margin-top:4px;"><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:11px;"><span style="color:rgba(255,255,255,0.4);">1 Ramadan</span><span style="color:var(--gold);font-weight:700;">${pct}% complete</span><span style="color:rgba(255,255,255,0.4);">30 Ramadan</span></div><div style="background:rgba(255,255,255,0.08);border-radius:20px;height:8px;overflow:hidden;"><div style="background:linear-gradient(90deg,var(--gold),var(--gold-light));height:100%;width:${pct}%;border-radius:20px;"></div></div></div>`;
+    } else if (w < EID) {
+      labelEl.textContent = 'Eid al-Fitr 1447 AH';
+      mainEl.textContent  = '🌙 Eid Mubarak — Tomorrow!';
+      subEl.textContent   = 'May Allah accept our fasts and prayers. Ameen.';
+      tilesEl.innerHTML   = '';
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
+function shareRamadan() {
+  const main   = document.getElementById('ramadan-main').innerText;
+  const arQuote = document.getElementById('salafi-arabic').textContent;
+  const trans  = document.getElementById('salafi-trans').textContent;
+  const ref    = document.getElementById('salafi-ref').textContent;
+  const text   = '🌙 *Ramadan Mubarak — 1447 AH*\n\n' + main +
+    '\n\n📿 *Salafi Quote of the Day:*\n' + arQuote + '\n\n' + trans + '\n' + ref + SITE_TAG;
+  shareViaWhatsApp(text);
+}
+
+// ── QURAN & HADITH ──
+const quranVerses = [
+  { arabic: 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', trans: '"Verily, with hardship comes ease."', ref: 'Surah Ash-Sharh (94:6)' },
+  { arabic: 'وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا', trans: '"And whoever fears Allah — He will make for him a way out."', ref: 'Surah At-Talaq (65:2)' },
+  { arabic: 'فَإِنَّ مَعَ الْعُسْرِ يُسْرًا', trans: '"For indeed, with hardship will be ease."', ref: 'Surah Ash-Sharh (94:5)' },
+  { arabic: 'وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ', trans: '"And despair not of relief from Allah."', ref: 'Surah Yusuf (12:87)' },
+  { arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ', trans: '"Sufficient for us is Allah, and He is the best Disposer of affairs."', ref: "Surah Ali 'Imran (3:173)" },
+  { arabic: 'وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ', trans: '"And remember Allah often that you may succeed."', ref: "Surah Al-Jumu'ah (62:10)" },
+  { arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً', trans: '"Our Lord! Grant us good in this world and good in the Hereafter."', ref: 'Surah Al-Baqarah (2:201)' },
+  { arabic: 'وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ', trans: '"Perhaps you dislike a thing and it is good for you."', ref: 'Surah Al-Baqarah (2:216)' },
+  { arabic: 'إِنَّ اللَّهَ مَعَ الصَّابِرِينَ', trans: '"Indeed, Allah is with the patient."', ref: 'Surah Al-Baqarah (2:153)' },
+  { arabic: 'وَقُل رَّبِّ زِدْنِي عِلْمًا', trans: '"And say: My Lord, increase me in knowledge."', ref: 'Surah Ta-Ha (20:114)' },
+  { arabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا', trans: '"O you who believe! Remember Allah with much remembrance."', ref: 'Surah Al-Ahzab (33:41)' },
+  { arabic: 'إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ', trans: '"Only those fear Allah, from among His servants, who have knowledge."', ref: 'Surah Fatir (35:28)' },
+];
+const hadiths = [
+  { arabic: 'الدِّينُ النَّصِيحَةُ', trans: '"The religion is sincere advice." The companions asked: To whom? He ﷺ said: "To Allah, His Book, His Messenger, the leaders of the Muslims, and their common folk."', ref: 'Sahih Muslim 55' },
+  { arabic: 'خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ', trans: '"The best among you are those who learn the Quran and teach it."', ref: 'Sahih Bukhari 5027' },
+  { arabic: 'الطَّهُورُ شَطْرُ الإِيمَانِ', trans: '"Cleanliness is half of faith."', ref: 'Sahih Muslim 223' },
+  { arabic: 'اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ', trans: '"Fear Allah wherever you are, follow a bad deed with a good one to erase it, and behave well towards people."', ref: 'Tirmidhi 1987' },
+  { arabic: 'مَنْ صَمَتَ نَجَا', trans: '"Whoever remains silent is saved."', ref: 'Tirmidhi 2501' },
+  { arabic: 'لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ', trans: '"None of you truly believes until he loves for his brother what he loves for himself."', ref: 'Sahih Bukhari 13' },
+  { arabic: 'الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ', trans: '"A Muslim is one from whose tongue and hands the Muslims are safe."', ref: 'Sahih Bukhari 10' },
+  { arabic: 'إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ', trans: '"Indeed Allah is Beautiful and He loves beauty."', ref: 'Sahih Muslim 91' },
+  { arabic: 'أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ', trans: '"The most beloved deeds to Allah are those done consistently, even if they are small."', ref: 'Sahih Bukhari 6465' },
+  { arabic: 'إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ', trans: '"Indeed, actions are judged by intentions."', ref: 'Sahih Bukhari 1' },
+];
+
+function hideLoader(id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
+
+function setQuranFallback() {
+  const qv = quranVerses[dayOfYear % quranVerses.length];
+  document.getElementById('quran-arabic').textContent = qv.arabic;
+  document.getElementById('quran-trans').textContent = qv.trans;
+  document.getElementById('quran-ref').textContent = '— ' + qv.ref;
+  hideLoader('quran-loading');
+}
+function setHadithFallback() {
+  const hd = hadiths[dayOfYear % hadiths.length];
+  document.getElementById('hadith-arabic').textContent = hd.arabic;
+  document.getElementById('hadith-trans').textContent = hd.trans;
+  document.getElementById('hadith-ref').textContent = '— ' + hd.ref;
+  hideLoader('hadith-loading');
+}
+async function fetchQuranVerse() {
+  try {
+    const surahNum = (dayOfYear % 114) + 1;
+    const res = await fetch(`https://api.alquran.cloud/v1/ayah/${surahNum}:1/editions/quran-uthmani,en.asad`);
+    const data = await res.json();
+    if (data.code === 200) {
+      document.getElementById('quran-arabic').textContent = data.data[0].text;
+      document.getElementById('quran-trans').textContent = `"${data.data[1].text}"`;
+      document.getElementById('quran-ref').textContent = `— ${data.data[0].surah.englishName} · ${data.data[0].surah.name} (${surahNum}:${data.data[0].numberInSurah})`;
+    } else { setQuranFallback(); }
+  } catch(e) { setQuranFallback(); }
+  hideLoader('quran-loading');
+}
+async function fetchHadith() {
+  try {
+    const nums = [1,2,6,8,10,13,15,17,22,29,31,33,35,41,45,54,56,60,65,73];
+    const num = nums[dayOfYear % nums.length];
+    const res = await fetch(`https://api.sunnah.com/v1/hadiths/${num}`, { headers: { 'X-API-Key': 'SqD712P3E82xnwOAEOkGd5JZH8s9wRR24TqNFzjk' } });
+    if (res.ok) {
+      const data = await res.json();
+      const body = data.hadith?.[0]?.body || '';
+      const book = data.book?.bookName || 'Hadith';
+      if (body) {
+        const hd = hadiths[dayOfYear % hadiths.length];
+        document.getElementById('hadith-arabic').textContent = hd.arabic;
+        document.getElementById('hadith-trans').textContent = body.replace(/<[^>]*>/g, '');
+        document.getElementById('hadith-ref').textContent = `— ${book}, #${num}`;
+        hideLoader('hadith-loading'); return;
+      }
+    }
+    setHadithFallback();
+  } catch(e) { setHadithFallback(); }
+  hideLoader('hadith-loading');
+}
+
+function shareQuran() {
+  const text = '📖 *Quran — Verse of the Day*\n\n' +
+    document.getElementById('quran-arabic').textContent + '\n\n' +
+    document.getElementById('quran-trans').textContent + '\n\n' +
+    '🔖 ' + document.getElementById('quran-ref').textContent + SITE_TAG;
+  shareViaWhatsApp(text);
+}
+function shareHadith() {
+  const text = '📜 *Hadith — Reminder of the Day*\n\n' +
+    document.getElementById('hadith-arabic').textContent + '\n\n' +
+    document.getElementById('hadith-trans').textContent + '\n\n' +
+    '🔖 ' + document.getElementById('hadith-ref').textContent + SITE_TAG;
+  shareViaWhatsApp(text);
+}
+
+fetchQuranVerse();
+fetchHadith();
+
+// ── STREAM SWITCHER ──
+const streams = {
+  alislamtv: {
+    src:   'https://player.gvideo.co/streams/593149_2183883',
+    title: 'Al-Islam TV',
+    desc:  '🕌 Islamic Lectures · Quran · Reminders',
+    type:  'gvideo'
+  },
+  makkah: {
+    src:   'https://www.youtube.com/embed/Cm1v4bteXbI?autoplay=1&rel=0',
+    title: '🕋 Masjid al-Haram — Makkah Live',
+    desc:  '🕋 Live from Makkah al-Mukarramah',
+    type:  'youtube'
+  },
+  madinah: {
+    src:   'https://www.youtube.com/embed/9A1S0xAPVIs?autoplay=1&rel=0',
+    title: '🕌 Masjid an-Nabawi — Madinah Live',
+    desc:  '🕌 Live from the Prophet\'s Mosque ﷺ',
+    type:  'youtube'
+  },
+  quran: {
+    src:   'https://www.youtube.com/embed/YqG9AXYGmDc?autoplay=1&rel=0',
+    title: '📖 Quran Recitation Live',
+    desc:  '📖 Beautiful live Quran recitation',
+    type:  'youtube'
+  },
+  hadith: {
+    src:   'https://www.youtube.com/embed/ARC8BNPANaI?list=PLaapSoYQaZPLXOn127qLOAOWeZGs7SNiA&autoplay=1&rel=0',
+    title: '📜 Hadith Live',
+    desc:  '📜 Live Hadith lessons & reminders',
+    type:  'youtube'
+  }
+};
+let currentStream = 'alislamtv';
+
+function switchStream(key) {
+  if (currentStream === key) return;
+  currentStream = key;
+  const s = streams[key];
+  // Update player
+  document.getElementById('live-player').src = s.src;
+  document.getElementById('stream-title').textContent = s.title;
+  document.getElementById('stream-desc').textContent = s.desc;
+  // Update tabs
+  Object.keys(streams).forEach(k => {
+    const tab = document.getElementById('tab-' + k);
+    if (tab) {
+      tab.style.background = k === key ? 'rgba(201,168,76,0.15)' : 'transparent';
+      tab.style.color = k === key ? 'var(--gold)' : 'rgba(255,255,255,0.5)';
+      tab.style.borderColor = k === key ? 'rgba(201,168,76,0.4)' : 'rgba(255,255,255,0.1)';
+    }
+  });
+}
+
+// ── COPY TO CLIPBOARD ──
+function copyText(text, spanId) {
+  navigator.clipboard.writeText(text).then(() => {
+    const el = document.getElementById(spanId);
+    const original = el.textContent;
+    el.textContent = '✅ Copied!';
+    setTimeout(() => { el.textContent = original; }, 2000);
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+    const el = document.getElementById(spanId);
+    const original = el.textContent;
+    el.textContent = '✅ Copied!';
+    setTimeout(() => { el.textContent = original; }, 2000);
+  });
+}
+
+// ── LEARN ISLAM TOPIC SWITCHER ──
+function showTopic(id) {
+  ['pillars','iman','wudu','duas','pdfs'].forEach(t => {
+    document.getElementById('topic-' + t).style.display = t === id ? 'block' : 'none';
+    const tab = document.getElementById('ltab-' + t);
+    if (tab) tab.classList.toggle('active-ltab', t === id);
+  });
+}
+
+function showDhikr(id) {
+  ['morning','evening','home'].forEach(d => {
+    document.getElementById('dhikr-' + d).style.display = d === id ? 'block' : 'none';
+    const btn = document.getElementById('dtab-' + d);
+    if (btn) {
+      btn.style.background = d === id ? 'rgba(201,168,76,0.15)' : 'transparent';
+      btn.style.color = d === id ? 'var(--gold)' : 'rgba(255,255,255,0.5)';
+      btn.style.borderColor = d === id ? 'rgba(201,168,76,0.4)' : 'rgba(255,255,255,0.1)';
+    }
+  });
+}
+
+function checkTabScroll() {
+  const el = document.getElementById('learn-tabs');
+  const arrow = document.getElementById('tab-arrow');
+  if (!el || !arrow) return;
+  // Hide arrow when scrolled to end
+  const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+  arrow.style.opacity = atEnd ? '0' : '1';
+  arrow.style.pointerEvents = atEnd ? 'none' : 'auto';
+}
+
+function shareTopic(topic) {
+  const msgs = {
+    pillars: '🕋 *The 5 Pillars of Islam — أَرْكَانُ الإِسْلَام*\n\n1️⃣ *Shahada* — Declaration of Faith\n2️⃣ *Salah* — 5 Daily Prayers\n3️⃣ *Zakat* — Obligatory Charity (2.5%)\n4️⃣ *Sawm* — Fasting in Ramadan\n5️⃣ *Hajj* — Pilgrimage to Makkah (once in lifetime)\n\nShare with someone you love 🤲',
+    iman: '💎 *The 6 Articles of Faith — أَرْكَانُ الإِيمَان*\n\n1️⃣ Belief in *Allah*\n2️⃣ Belief in *Angels*\n3️⃣ Belief in *Allah\'s Books*\n4️⃣ Belief in *Prophets & Messengers* (Muhammad ﷺ is the last)\n5️⃣ Belief in *the Last Day*\n6️⃣ Belief in *Qadar* — Divine Decree 🤲',
+    wudu: '💧 *How to Perform Wudu*\n\n1. Intention 2. Bismillah 3. Hands×3 4. Mouth×3 5. Nose×3 6. Face×3 7. Arms×3 8. Wipe head & ears 9. Feet×3\n\n🙏 *5 Daily Prayers:* Fajr · Dhuhr · Asr · Maghrib · Isha\nFace Qiblah, make Niyyah, say Allahu Akbar 🤲',
+    duas: '📿 *Duas from Hisnul Muslim*\n\n🌅 Waking: الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا\n🍽️ Eating: بِسْمِ اللَّه\n🌙 Sleeping: بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا\n📿 Daily: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ (100×)\nأَسْتَغْفِرُ اللَّه (100×)\n\n⚠️ Shirk is the greatest sin — Never associate partners with Allah 🤲'
+  };
+  if (msgs[topic]) shareViaWhatsApp(msgs[topic] + SITE_TAG);
+}
+
+let currentPrayerData = null;
+function setStatus(msg, err) {
+  const el = document.getElementById('prayer-status');
+  el.textContent = msg;
+  el.style.color = err ? '#ff6b6b' : 'rgba(255,255,255,0.4)';
+}
+function displayPrayerTimes(timings, loc, dateStr) {
+  currentPrayerData = { timings, locationName: loc, dateStr };
+  document.getElementById('prayer-hint').style.display = 'none';
+  document.getElementById('prayer-results').style.display = 'block';
+  document.getElementById('prayer-location-name').textContent = loc;
+  document.getElementById('prayer-date-label').textContent = dateStr;
+  const prayers = ['Fajr','Dhuhr','Asr','Maghrib','Isha'];
+  prayers.forEach(p => {
+    const card = document.querySelector(`[data-prayer="${p}"]`);
+    if (card) { card.style.borderColor = 'rgba(255,255,255,0.1)'; card.style.background = 'rgba(255,255,255,0.05)'; card.classList.remove('next'); }
+    const el = document.getElementById('time-' + p);
+    if (el && timings[p]) {
+      const [hh, mm] = timings[p].split(':');
+      const hh2 = parseInt(hh), ap = hh2 >= 12 ? 'PM' : 'AM';
+      el.textContent = `${hh2 % 12 || 12}:${mm} ${ap}`;
+    }
+  });
+  const now = new Date();
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+  let nextP = null, nextM = Infinity, nextT = '';
+  prayers.forEach(p => {
+    if (!timings[p]) return;
+    const [hh, mm] = timings[p].split(':');
+    const pm = parseInt(hh) * 60 + parseInt(mm);
+    if (pm > nowMins && pm < nextM) {
+      nextM = pm; nextP = p;
+      const h2 = parseInt(hh), ap = h2 >= 12 ? 'PM' : 'AM';
+      nextT = `${h2 % 12 || 12}:${mm} ${ap}`;
+    }
+  });
+  if (nextP) {
+    const card = document.querySelector(`[data-prayer="${nextP}"]`);
+    if (card) card.classList.add('next');
+    const bar = document.getElementById('next-prayer-bar');
+    bar.style.display = 'flex';
+    document.getElementById('next-prayer-name').textContent = nextP;
+    document.getElementById('next-prayer-time').textContent = nextT;
+    const ml = nextM - nowMins;
+    document.getElementById('next-prayer-countdown').textContent = ml >= 60 ? `⏱ in ${Math.floor(ml/60)}h ${ml%60}min` : `⏱ in ${ml} min`;
+  }
+  setStatus('✅ Prayer times loaded for ' + loc);
+}
+async function fetchPrayerTimes() {
+  const city = document.getElementById('prayer-city').value.trim();
+  if (!city) { setStatus('Please enter a city name.', true); return; }
+  setStatus('⏳ Fetching prayer times...');
+  try {
+    const n = new Date(), d = n.getDate(), m = n.getMonth()+1, y = n.getFullYear();
+    const res = await fetch(`https://api.aladhan.com/v1/timingsByCity/${d}-${m}-${y}?city=${encodeURIComponent(city)}&method=3`);
+    const data = await res.json();
+    if (data.code === 200) {
+      const dstr = `${dNames[n.getDay()]}, ${d}/${m}/${y}`;
+      displayPrayerTimes(data.data.timings, city, dstr);
+    } else { setStatus('❌ City not found. Try "Lagos, Nigeria" or "London, UK"', true); }
+  } catch(e) { setStatus('❌ Could not load. Check your internet.', true); }
+}
+async function fetchByLocation() {
+  if (!navigator.geolocation) { setStatus('Geolocation not supported.', true); return; }
+  setStatus('📡 Detecting your location...');
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    try {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      const n = new Date(), d = n.getDate(), m = n.getMonth()+1, y = n.getFullYear();
+      const res = await fetch(`https://api.aladhan.com/v1/timings/${d}-${m}-${y}?latitude=${lat}&longitude=${lng}&method=3`);
+      const data = await res.json();
+      if (data.code === 200) {
+        const tz = data.data.meta.timezone || 'Your Location';
+        displayPrayerTimes(data.data.timings, tz, `${dNames[n.getDay()]}, ${d}/${m}/${y}`);
+        document.getElementById('prayer-city').value = tz;
+      } else { setStatus('❌ Could not get prayer times.', true); }
+    } catch(e) { setStatus('❌ Error fetching location.', true); }
+  }, () => { setStatus('❌ Location denied. Enter city manually.', true); });
+}
+function sharePrayerTimes() {
+  if (!currentPrayerData) return;
+  const { timings, locationName, dateStr } = currentPrayerData;
+  const emojis = { Fajr:'🌅', Dhuhr:'☀️', Asr:'🌤️', Maghrib:'🌇', Isha:'🌙' };
+  let t = `🕌 *Prayer Times — ${locationName}*\n📅 ${dateStr}\n\n`;
+  ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(p => {
+    if (timings[p]) {
+      const [hh, mm] = timings[p].split(':');
+      const h2 = parseInt(hh), ap = h2 >= 12 ? 'PM' : 'AM';
+      t += `${emojis[p]} *${p}:* ${h2 % 12 || 12}:${mm} ${ap}\n`;
+    }
+  });
+  shareViaWhatsApp(t + SITE_TAG);
+}
+</script>
+</body>
+</html>
